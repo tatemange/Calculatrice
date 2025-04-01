@@ -1,0 +1,111 @@
+
+
+:root{
+    --bg-color: black;
+    --label: #fff;
+    --secondaryLable: rgb(150, 150, 150);
+    --border-color: rgba(255, 255, 255, 20%);
+    --border: solid var(--border-color) 1px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "SF Pro Display", "Inter", system-ui;
+}
+
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    height: 100vh;
+    color: var(--label);
+}
+
+.card {
+    background-color: #242424;
+    box-shadow: 0 0 40px 10px #fff2;
+    display: flex;
+    flex-direction: column;
+    border: solid var(--border-color) 2px;
+    border-radius: 22px;
+    gap: 10px;
+}
+
+.card .text-up {
+    padding: 10px 15px;
+    text-align: right;
+}
+
+.card .screen {
+    height: calc(100px + 3px * 2);
+    overflow-y: auto;
+    padding: 3px 6px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.card .screen .r {
+    padding: 0 2px;
+    border-radius: 3px;
+    font-size: 80%;
+    border: var(--border);
+    cursor: pointer;
+}
+.card .screen .r:hover {
+    background: var(--border-color);
+}
+
+.card .values {
+    display: flex;
+    border: var(--border);
+    border-right: none;
+    border-left: none;
+}
+
+.card .values input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 100%;
+    color: var(--label);
+    padding: 0 6px;
+    box-shadow: inset 0 0 10px #0006;
+}
+
+.card .buttons {
+    display: grid;
+    grid-template-columns: repeat(12, 40px);
+    gap: 10px;
+    padding: 10px;
+}
+
+
+
+.card .buttons .btn {
+    border: none;
+    cursor: pointer;
+    color: var(--label);
+    height: 40px;
+    border-radius: 50%;
+    font-size: .97em;
+}
+
+.card .buttons .btn.pro {
+    background-color: #505050;
+}
+.card .buttons .btn.light {
+    background-color: #3a3a3a;
+}
+
+.card .buttons .b0 {
+    grid-column: span 2;
+    border-radius: 40px;
+}
