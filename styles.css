@@ -130,3 +130,6 @@ button.rand {
 }
 
 
+.sup, .sub {
+    font-size: 65%;
+}
