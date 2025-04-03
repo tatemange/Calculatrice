@@ -65,7 +65,7 @@ body {
 
 .header .screen {
     display: flex;
-    min-height: 150px;
+    min-height: 180px;
 }
 
 .header .screen .result { 
@@ -133,4 +133,9 @@ button.rand {
 
 .sup, .sub {
     font-size: 65%;
+}
+
+.sub {
+    vertical-align: bottom;
+    font-size: 50%;
 }

@@ -90,7 +90,7 @@ function modified(button) {
     if (content.includes("e")) {
         start = content.split("e")[0]
         end = content.split("e")[1].replace("^", "")        
-        button.innerHTML = `${start}<i>e</i><sup class='sup'>${end}</sup>`
+        button.innerHTML = `${start}e<sup class='sup'>${end}</sup>`
     }
 }
 
@@ -111,11 +111,86 @@ function handleClickBtn(e) {
     
     switch (myPointer.textContent) {
         case "=":
-            
+            RESULT.innerHTML = (evaluation(RESULT))
+            break;
+
+        case "RM":
+            replaceLastChildWith(RESULT, "")
+            break;
+        case "+/-":
+            plus_ou_moins(RESULT)
             break;
     
         default:
-            RESULT.innerHTML += myPointer.innerHTML
+            RESULT.innerHTML += `<span class='one'>${myPointer.innerHTML}</span>`
             break;
     }
+}
+
+
+function plus_ou_moins(parent) {
+    if(parent.textContent === "") return
+    if(parent.children[0].textContent[0] === "-"){
+        let string = parent.children[0].textContent.replace("-", "+")
+        parent.children[0].textContent = string
+        return
+    }
+    if(parent.children[0].textContent[0] === "+"){
+        let string = parent.children[0].textContent.replace("+", "-")
+        parent.children[0].textContent = string
+        return
+    }
+
+    const span = createHtmlElt("span", {text: "-", "class": "one"})
+    parent.prepend(span)
+    return
+}
+
+function replaceLastChildWith(parent, data){
+    const all_children = [...parent.children]
+    all_children.pop()
+    parent.innerHTML = ""
+    all_children.forEach((child) => parent.append(child))
+    if(data !== "")
+        parent.innerHTML += `<span class='one'>${data}</span>`
+}
+
+
+
+
+
+
+
+/**
+ * 
+ * @param {HTMLElement} elt 
+ * @returns {Number}
+ */
+function evaluation(elt) {
+    console.log(elt);
+    
+    return eval(remplaceur(elt.textContent));
+}
+
+function remplaceur(string){
+    let obj = {
+        "π": "Math.PI",
+        "÷": "/", 
+        "×": "*", 
+        ",": ".",
+        "sin": "Math.sin",
+        "cos": "Math.cos",
+        "tan": "Math.tan",
+        "log10": "Math.log10",
+        "ln": "Math.log",
+        "sinh": "sinh",
+        "tanh": "tanh",
+        "cosh": "cosh",
+    }
+    for(let [key, value] of Object.entries(obj)){
+        string = string.replaceAll(key, value)
+    }
+    console.log(string);
+    
+    return string
 }
