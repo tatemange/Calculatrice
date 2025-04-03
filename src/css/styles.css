@@ -1,7 +1,8 @@
 
 
 :root{
-    --bg-color: black;
+    --ratio: 1;
+    --bg-color: white;
     --dark: #292928;
     --first-color: #ff9502;
 
@@ -16,17 +17,16 @@
     --secondaryLable: #a19fa0;
     --border-color: #464645;
     --border: solid var(--border-color) 1px;
-    --big-font-size: 2.5em;
+    --big-font-size: calc(2.5em * var(--ratio));
 
-    --ratio: 1;
-    --width: 900px;
-    --height: 540px;
-    --t: 0.3s;
+    --width: calc(900px * var(--ratio));
+    --height: calc(540px * var(--ratio));
+    --t: 0.2s;
 }
 
 @font-face {
     font-family: "icon";
-    src: url(./font/sf-pro-icons_regular.ttf);
+    src: url(../font/sf-pro-icons_regular.ttf);
 }
 
 
@@ -42,7 +42,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 16px;
+    font-size: calc(16px * var(--ratio));
     height: 100vh;
     color: var(--label);
 }
@@ -50,12 +50,11 @@ body {
 
 .card {
     display: flex;
+    flex-direction: column;
     width: calc(var(--width) * var(--ratio));
     height: calc(var(--height) * var(--ratio));
-    border-radius: calc(12px * var(--ratio));
+    border-radius: calc(5px * var(--ratio));
     background: var(--dark);
-    display: flex;
-    flex-direction: column;
 }
 
 .header {
@@ -88,7 +87,7 @@ body {
 }
 
 button {
-    font-size: 1.2em;
+    font-size: calc(1.2em * var(--ratio));
     border: none;
     background: var(--btn-bg);
     border-radius: 40px;
@@ -106,8 +105,7 @@ button:active {
 
 button.operator {
     background-color: var(--lastBtnColor);
-    font-size: 2em;
-
+    font-size: calc(2em * var(--ratio));
 }
 
 button.operator:active {
@@ -119,7 +117,7 @@ button.number {
 }
 
 button.font-size-xxl {
-    font-size: 1.7em;
+    font-size: calc(1.7em * var(--ratio));
 }
 
 button.up-btn {
@@ -127,15 +125,15 @@ button.up-btn {
 }
 
 button.rand {
-    font-size: 1.1em;
+    font-size: calc(1.1em * var(--ratio));
+
 }
 
-
 .sup, .sub {
-    font-size: 65%;
+    font-size: calc(65% * var(--ratio));
 }
 
 .sub {
     vertical-align: bottom;
-    font-size: 50%;
+    font-size: calc(50% * var(--ratio));
 }
