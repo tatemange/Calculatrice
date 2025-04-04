@@ -12,6 +12,8 @@ export function createHtmlElt(tagName, attrs = {}) {
 }
 
 
+
+
 /**
  * @param {string} string
  * @param {HTMLElement} parent
@@ -58,10 +60,11 @@ export function setStyle(array, nbCol, moins) {
 }
 
 
+
 /**
  * @param {HTMLElement} elt
  */
-export function changeContent(elt){
+export function updateBtnString(elt){
     let content = elt.textContent
     if(content.includes("^")){
         content = content.split("^")
@@ -69,9 +72,13 @@ export function changeContent(elt){
     }
     if(content.includes("#")){
         content = content.split("#")
-        content = `<sup class="sup">${content[0]}</sup>` + '\u221A' + `<sub class='su'>${content[1]}</sub>`
+        content = `<sup class="sup">${content[0]}</sup>` + '<span class="sqrt">\u221A</span>' + `<sub class='sub-2'>${content[1]}</sub>`
     }
-
+    if(content.includes("_")){
+        content = content.split("_")
+        content = content[0] + `<sub class='sub'>${content[1]}</sub>`
+    }
     elt.innerHTML = content
 }
+
 

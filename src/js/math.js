@@ -16,3 +16,6 @@ export function plus_ou_moins(parent) {
     const span = createHtmlElt("span", {text: "-", "class": "one"})
     parent.prepend(span)
 }
+
+
+

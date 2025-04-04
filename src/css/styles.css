@@ -2,7 +2,7 @@
 
 :root{
     --ratio: 1;
-    --bg-color: white;
+    --bg-color: black;
     --dark: #292928;
     --first-color: #ff9502;
 
@@ -17,7 +17,7 @@
     --secondaryLable: #a19fa0;
     --border-color: #464645;
     --border: solid var(--border-color) 1px;
-    --big-font-size: calc(2.5em * var(--ratio));
+    --big-font-size: calc(4em * var(--ratio));
 
     --width: calc(900px * var(--ratio));
     --height: calc(540px * var(--ratio));
@@ -25,8 +25,8 @@
 }
 
 @font-face {
-    font-family: "icon";
-    src: url(../font/sf-pro-icons_regular.ttf);
+    font-family: "font";
+    src: url(../font/sf-pro-display.ttf);
 }
 
 
@@ -34,7 +34,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "icon", "SF Pro Rounded", "Inter", system-ui;
+    font-family: "font", "SF Pro Rounded", sans-serif;
+    color: currentColor;
 }
 
 body {
@@ -53,7 +54,7 @@ body {
     flex-direction: column;
     width: calc(var(--width) * var(--ratio));
     height: calc(var(--height) * var(--ratio));
-    border-radius: calc(5px * var(--ratio));
+    border-radius: calc(10px * var(--ratio));
     background: var(--dark);
 }
 
@@ -80,9 +81,9 @@ body {
 .buttons {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     gap: calc(10px * var(--ratio));
     padding: calc(16px * var(--ratio));
-    grid-template-rows: repeat(5, 1fr);
     height: 100%;
 }
 
@@ -133,7 +134,29 @@ button.rand {
     font-size: calc(65% * var(--ratio));
 }
 
-.sub {
+.sub-2 {
     vertical-align: bottom;
-    font-size: calc(50% * var(--ratio));
+    font-size: calc(70% * var(--ratio));
+}
+
+.result .sqrt {
+    color: var(--red);
+}
+
+.result .operator {
+    color: var(--first-color);
+}
+
+.result .conteneur {
+    color: #70706f;
+}
+
+
+@media all and (max-width: 940px) {
+    :root {
+        --width: 100vw;
+        --height: 100vh;
+    }
+
+
 }
